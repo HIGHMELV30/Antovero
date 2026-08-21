@@ -41,7 +41,7 @@
     "postalCode": "00917",
     "addressCountry": "PR"
   },
-  "priceRange": "$15–$350"
+  "priceRange": "$$"
 }
 </script>
 
@@ -388,6 +388,39 @@ tbody tr:hover{background:var(--bg-tint)}
 td:last-child,th:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 td:last-child{font-weight:600;color:var(--navy-800)}
 
+/* ---------- 11b. Fees ---------- */
+.feegrid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(1rem,2vw,1.6rem);align-items:start}
+@media (max-width:860px){.feegrid{grid-template-columns:1fr}}
+.feecard{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(1.5rem,1.1rem + 1.3vw,2.1rem);display:flex;flex-direction:column;height:100%
+}
+.feecard--fixed{
+  background:linear-gradient(158deg,var(--navy-900),var(--navy-700));border-color:transparent;color:#dbe5f1
+}
+.feecard--fixed h3{color:#fff}
+.feecard__label{
+  font-size:.68rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--navy-600);margin-bottom:.7rem
+}
+.feecard--fixed .feecard__label{color:var(--gold-400)}
+.feecard h3{font-size:var(--fs-h3);margin-bottom:.7rem}
+.feecard__amt{
+  font-family:var(--serif);font-size:clamp(2.6rem,2rem + 2.4vw,3.5rem);font-weight:700;
+  color:#fff;line-height:1;margin:.2rem 0 1rem
+}
+.feecard__amt span{font-family:var(--sans);font-size:.9rem;font-weight:600;letter-spacing:.06em;color:var(--gold-400)}
+.feecard__desc{font-size:var(--fs-sm);color:var(--ink-2);margin-bottom:1.4rem}
+.feecard--fixed .feecard__desc{color:#b7c6da}
+.feecard .btn{align-self:flex-start;margin-top:auto}
+.feelist{list-style:none;display:grid;gap:.55rem;margin-bottom:1.5rem}
+.feelist li{position:relative;padding-left:1.5rem;font-size:var(--fs-sm);color:var(--ink-2)}
+.feelist li::before{
+  content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;
+  background:var(--gold-500);box-shadow:0 0 0 3px rgba(150,124,75,.18)
+}
+.svc__price--quote{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy-600)}
+
 /* ---------- 12. Membership ---------- */
 .member{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(1.6rem,3vw,3.2rem);align-items:start}
 @media (max-width:860px){.member{grid-template-columns:1fr}}
@@ -652,8 +685,8 @@ td:last-child{font-weight:600;color:var(--navy-800)}
       <p class="eyebrow"><span class="es">Servicios y honorarios</span><span class="en">Services &amp; fees</span></p>
       <h2><span class="es">Ocho servicios, contratables por separado o combinados</span><span class="en">Eight services, available individually or combined</span></h2>
       <p>
-        <span class="es">Las tarifas indicadas son los honorarios establecidos por Antovero. Gastos de terceros, derechos gubernamentales, fianzas, sellos, notarización, mensajería u otros cargos externos no están incluidos, salvo que una propuesta escrita indique lo contrario.</span>
-        <span class="en">The rates shown are the fees established by Antovero. Third-party expenses, government fees, bonds, stamps, notarization, courier services and other external charges are not included unless a written proposal states otherwise.</span>
+        <span class="es">Cada gestión se cotiza según su alcance. Antovero entrega una propuesta escrita con los honorarios antes de comenzar cualquier trabajo. Gastos de terceros, derechos gubernamentales, fianzas, sellos, notarización, mensajería u otros cargos externos no están incluidos, salvo que la propuesta escrita indique lo contrario.</span>
+        <span class="en">Each engagement is quoted according to its scope. Antovero provides a written proposal with the fees before any work begins. Third-party expenses, government fees, bonds, stamps, notarization, courier services and other external charges are not included unless the written proposal states otherwise.</span>
       </p>
     </div>
 
@@ -666,19 +699,19 @@ td:last-child{font-weight:600;color:var(--navy-800)}
           <h3><span class="es">Preparación y entrega de propuestas</span><span class="en">Proposal preparation &amp; submission</span></h3>
           <p class="svc__desc"><span class="es">Preparación administrativa y redacción del expediente de respuesta para una solicitud, subasta, RFP, RFQ u oportunidad similar.</span><span class="en">Administrative preparation and drafting of the response file for a solicitation, bid, RFP, RFQ or similar opportunity.</span></p>
         </div>
-        <div class="svc__price">$350<small><span class="es">por gestión</span><span class="en">per engagement</span></small></div>
+        <div class="svc__price svc__price--quote"><span class="es">Cotización</span><span class="en">Quote</span><small><span class="es">a solicitud</span><span class="en">on request</span></small></div>
         <div class="svc__body">
           <dl class="svc__detail">
             <dt><span class="es">Incluye</span><span class="en">Includes</span></dt>
             <dd><span class="es">Revisión de la oportunidad y sus requisitos; organización de la información suministrada por el cliente; preparación y redacción de la propuesta; revisión de formularios y documentos; verificación final; presentación dentro del plazo; confirmación de entrega y seguimiento posterior.</span><span class="en">Review of the opportunity and its requirements; organization of the information supplied by the client; preparation and drafting of the proposal; review of forms and documents; final verification; submission within the deadline; delivery confirmation and subsequent follow-up.</span></dd>
 
             <dt><span class="es">Cancelación luego de comenzar</span><span class="en">Cancellation after work begins</span></dt>
-            <dd><span class="es">No se requiere pago por adelantado. Si el cliente cancela o decide no participar después de autorizar el trabajo, se facturará según la etapa alcanzada: <strong>$75</strong> por revisión y análisis; <strong>$175</strong> si la propuesta está en preparación; <strong>$350</strong> si está terminada o sustancialmente completada.</span><span class="en">No advance payment is required. If the client cancels or decides not to participate after authorizing the work, billing follows the stage reached: <strong>$75</strong> for review and analysis; <strong>$175</strong> if the proposal is in preparation; <strong>$350</strong> if it is finished or substantially complete.</span></dd>
+            <dd><span class="es">No se requiere pago por adelantado. Si el cliente cancela o decide no participar después de autorizar el trabajo, se facturará según la etapa alcanzada —revisión y análisis, propuesta en preparación, o propuesta terminada— conforme a las tarifas establecidas en la cotización aceptada.</span><span class="en">No advance payment is required. If the client cancels or decides not to participate after authorizing the work, billing follows the stage reached — review and analysis, proposal in preparation, or completed proposal — according to the rates set out in the accepted quote.</span></dd>
 
             <dt><span class="es">Comisión por adjudicación</span><span class="en">Award commission</span></dt>
             <dd><span class="es">Cuando Antovero haya realizado el proceso completo de participación —incluyendo la preparación, revisión, presentación y entrega de la propuesta— y el cliente resulte agraciado, podrá aplicar una comisión adicional. El monto o porcentaje será acordado de buena fe entre el cliente y Antovero, procurando condiciones favorables para ambas partes, y deberá quedar establecido por escrito antes de que la entidad contratante emita o publique la determinación de adjudicación. Esta comisión no se presumirá ni aplicará si no existe un acuerdo escrito previo.</span><span class="en">Where Antovero has carried out the full participation process — including preparation, review, submission and delivery of the proposal — and the client is awarded, an additional commission may apply. The amount or percentage will be agreed in good faith between the client and Antovero, seeking terms favorable to both parties, and must be established in writing before the contracting entity issues or publishes the award determination. This commission is not presumed and does not apply absent a prior written agreement.</span></dd>
           </dl>
-          <p class="note"><span class="es">Trabajos técnicos o extraordinarios pueden requerir una cotización adicional.</span><span class="en">Technical or extraordinary work may require a separate quote.</span></p>
+          <p class="note"><span class="es">El alcance y los honorarios se confirman por escrito antes de comenzar. Trabajos técnicos o extraordinarios se cotizan aparte.</span><span class="en">Scope and fees are confirmed in writing before work begins. Technical or extraordinary work is quoted separately.</span></p>
         </div>
       </article>
 
@@ -689,13 +722,13 @@ td:last-child{font-weight:600;color:var(--navy-800)}
           <h3><span class="es">Gestión de certificaciones gubernamentales</span><span class="en">Government certification processing</span></h3>
           <p class="svc__desc"><span class="es">Tramitación de certificaciones gubernamentales como servicio independiente. El cliente puede solicitar esta gestión aunque no esté participando en una subasta ni preparando una propuesta.</span><span class="en">Processing of government certifications as a stand-alone service. The client may request this even when not bidding or preparing a proposal.</span></p>
         </div>
-        <div class="svc__price">$35–$100<small><span class="es">según cantidad</span><span class="en">by quantity</span></small></div>
+        <div class="svc__price svc__price--quote"><span class="es">Cotización</span><span class="en">Quote</span><small><span class="es">a solicitud</span><span class="en">on request</span></small></div>
         <div class="svc__body">
           <dl class="svc__detail">
             <dt><span class="es">Incluye</span><span class="en">Includes</span></dt>
             <dd><span class="es">Revisión de la información entregada por el cliente, preparación o entrada de datos, presentación de la solicitud y seguimiento del trámite. Se ofrece como gestión individual o en paquetes.</span><span class="en">Review of the information provided by the client, preparation or data entry, submission of the application, and follow-up on the process. Offered individually or in packages.</span></dd>
-            <dt><span class="es">Honorarios</span><span class="en">Fees</span></dt>
-            <dd><span class="es"><strong>$35</strong> individual · <strong>$55</strong> hasta 3 · <strong>$75</strong> hasta 5 · <strong>$100</strong> más de 5</span><span class="en"><strong>$35</strong> single · <strong>$55</strong> up to 3 · <strong>$75</strong> up to 5 · <strong>$100</strong> more than 5</span></dd>
+            <dt><span class="es">Modalidad</span><span class="en">Format</span></dt>
+            <dd><span class="es">Se cotiza por gestión individual o en paquete, según la cantidad de certificaciones que necesite el cliente.</span><span class="en">Quoted per individual filing or as a package, based on the number of certifications the client needs.</span></dd>
           </dl>
           <p class="note"><span class="es">No incluye cargos de agencias o terceros.</span><span class="en">Agency and third-party charges not included.</span></p>
         </div>
@@ -708,7 +741,7 @@ td:last-child{font-weight:600;color:var(--navy-800)}
           <h3><span class="es">Renovación de ASG</span><span class="en">ASG registration renewal</span></h3>
           <p class="svc__desc"><span class="es">Apoyo administrativo para renovar el registro correspondiente ante la Administración de Servicios Generales.</span><span class="en">Administrative support to renew the corresponding registration with the General Services Administration of Puerto Rico (ASG).</span></p>
         </div>
-        <div class="svc__price">$250<small><span class="es">por gestión</span><span class="en">per engagement</span></small></div>
+        <div class="svc__price svc__price--quote"><span class="es">Cotización</span><span class="en">Quote</span><small><span class="es">a solicitud</span><span class="en">on request</span></small></div>
         <div class="svc__body">
           <dl class="svc__detail">
             <dt><span class="es">Incluye</span><span class="en">Includes</span></dt>
@@ -725,7 +758,7 @@ td:last-child{font-weight:600;color:var(--navy-800)}
           <h3><span class="es">Renovación de SAM.gov</span><span class="en">SAM.gov renewal</span></h3>
           <p class="svc__desc"><span class="es">Apoyo en la renovación del registro federal de la entidad en SAM.gov.</span><span class="en">Support with the renewal of the entity's federal registration in SAM.gov.</span></p>
         </div>
-        <div class="svc__price">$250<small><span class="es">por gestión</span><span class="en">per engagement</span></small></div>
+        <div class="svc__price svc__price--quote"><span class="es">Cotización</span><span class="en">Quote</span><small><span class="es">a solicitud</span><span class="en">on request</span></small></div>
         <div class="svc__body">
           <dl class="svc__detail">
             <dt><span class="es">Incluye</span><span class="en">Includes</span></dt>
@@ -759,13 +792,13 @@ td:last-child{font-weight:600;color:var(--navy-800)}
           <h3><span class="es">Visitas y gestiones presenciales</span><span class="en">On-site visits &amp; errands</span></h3>
           <p class="svc__desc"><span class="es">Visitas necesarias para entregar documentos, asistir a reuniones o completar una gestión relacionada con el servicio contratado.</span><span class="en">Visits required to deliver documents, attend meetings, or complete a task related to the contracted service.</span></p>
         </div>
-        <div class="svc__price">$15–$35<small><span class="es">por gestión</span><span class="en">per trip</span></small></div>
+        <div class="svc__price svc__price--quote"><span class="es">Cotización</span><span class="en">Quote</span><small><span class="es">a solicitud</span><span class="en">on request</span></small></div>
         <div class="svc__body">
           <dl class="svc__detail">
             <dt><span class="es">Incluye</span><span class="en">Includes</span></dt>
             <dd><span class="es">Coordinación y desplazamiento para una gestión dentro o fuera del área metropolitana.</span><span class="en">Coordination and travel for an errand inside or outside the San Juan metro area.</span></dd>
-            <dt><span class="es">Honorarios</span><span class="en">Fees</span></dt>
-            <dd><span class="es"><strong>$15</strong> dentro del área metro · <strong>$35</strong> fuera del área metro</span><span class="en"><strong>$15</strong> within the metro area · <strong>$35</strong> outside the metro area</span></dd>
+            <dt><span class="es">Modalidad</span><span class="en">Format</span></dt>
+            <dd><span class="es">Se cotiza según se trate de una gestión dentro o fuera del área metropolitana.</span><span class="en">Quoted according to whether the errand is inside or outside the San Juan metro area.</span></dd>
           </dl>
           <p class="note"><span class="es">Peajes, estacionamiento y otros gastos externos pueden cobrarse aparte.</span><span class="en">Tolls, parking and other external expenses may be billed separately.</span></p>
         </div>
@@ -809,42 +842,41 @@ td:last-child{font-weight:600;color:var(--navy-800)}
   </div>
 </section>
 
-<!-- ================= TABLA DE HONORARIOS ================= -->
+<!-- ================= HONORARIOS ================= -->
 <section class="section section--tint" id="honorarios">
   <div class="wrap">
     <div class="shead shead--center reveal">
-      <p class="eyebrow"><span class="es">Resumen</span><span class="en">Summary</span></p>
-      <h2><span class="es">Resumen de honorarios</span><span class="en">Fee summary</span></h2>
-      <p><span class="es">Referencia rápida de los honorarios establecidos. Los servicios pueden contratarse individualmente o combinarse en un plan de trabajo.</span><span class="en">Quick reference of the established fees. Services may be contracted individually or combined into a single work plan.</span></p>
+      <p class="eyebrow"><span class="es">Honorarios</span><span class="en">Fees</span></p>
+      <h2><span class="es">Cada gestión se cotiza según su alcance</span><span class="en">Every engagement is quoted to its scope</span></h2>
+      <p><span class="es">Antovero evalúa la situación del cliente y entrega una propuesta escrita con el alcance y los honorarios antes de comenzar. Así el cliente sabe exactamente qué incluye el trabajo y cuánto cuesta, sin cargos automáticos ni sorpresas.</span><span class="en">Antovero assesses the client's situation and delivers a written proposal with the scope and fees before starting. That way the client knows exactly what the work covers and what it costs — no automatic charges, no surprises.</span></p>
     </div>
 
-    <div class="tablewrap reveal">
-      <div class="tablescroll">
-        <table>
-          <caption><span class="es">Antovero International, LLC · Honorarios vigentes · Agosto de 2026</span><span class="en">Antovero International, LLC · Current fees · August 2026</span></caption>
-          <thead>
-            <tr>
-              <th scope="col"><span class="es">Servicio</span><span class="en">Service</span></th>
-              <th scope="col"><span class="es">Honorario</span><span class="en">Fee</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><span class="es">Preparación y entrega de propuesta</span><span class="en">Proposal preparation and submission</span></td><td><span class="es">$350 por gestión</span><span class="en">$350 per engagement</span></td></tr>
-            <tr><td><span class="es">Certificación gubernamental individual</span><span class="en">Single government certification</span></td><td><span class="es">$35 por gestión</span><span class="en">$35 per engagement</span></td></tr>
-            <tr><td><span class="es">Paquete de hasta 3 certificaciones</span><span class="en">Package of up to 3 certifications</span></td><td><span class="es">$55 por gestión</span><span class="en">$55 per engagement</span></td></tr>
-            <tr><td><span class="es">Paquete de hasta 5 certificaciones</span><span class="en">Package of up to 5 certifications</span></td><td><span class="es">$75 por gestión</span><span class="en">$75 per engagement</span></td></tr>
-            <tr><td><span class="es">Paquete de más de 5 certificaciones</span><span class="en">Package of more than 5 certifications</span></td><td><span class="es">$100 por gestión</span><span class="en">$100 per engagement</span></td></tr>
-            <tr><td><span class="es">Renovación de ASG</span><span class="en">ASG renewal</span></td><td><span class="es">$250 por gestión</span><span class="en">$250 per engagement</span></td></tr>
-            <tr><td><span class="es">Renovación de SAM.gov</span><span class="en">SAM.gov renewal</span></td><td><span class="es">$250 por gestión</span><span class="en">$250 per engagement</span></td></tr>
-            <tr><td><span class="es">Visita dentro del área metro</span><span class="en">Visit within the metro area</span></td><td><span class="es">$15 por gestión</span><span class="en">$15 per trip</span></td></tr>
-            <tr><td><span class="es">Visita fuera del área metro</span><span class="en">Visit outside the metro area</span></td><td><span class="es">$35 por gestión</span><span class="en">$35 per trip</span></td></tr>
-            <tr><td><span class="es">Paquete mensual de oportunidades</span><span class="en">Monthly opportunity package</span></td><td><span class="es">$20 mensuales</span><span class="en">$20 per month</span></td></tr>
-            <tr><td><span class="es">Comisión por adjudicación</span><span class="en">Award commission</span></td><td><span class="es">Según acuerdo escrito previo</span><span class="en">Per prior written agreement</span></td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="feegrid reveal">
+      <article class="feecard feecard--fixed">
+        <p class="feecard__label"><span class="es">Precio fijo publicado</span><span class="en">Published fixed price</span></p>
+        <h3><span class="es">Membresía mensual de oportunidades</span><span class="en">Monthly opportunity membership</span></h3>
+        <p class="feecard__amt">$20<span><span class="es">/mes</span><span class="en">/mo</span></span></p>
+        <p class="feecard__desc"><span class="es">Búsqueda y notificación de oportunidades alineadas con el perfil del cliente, más orientación general sobre requisitos y fechas. Acuerdo mes a mes, cancelable por escrito.</span><span class="en">Search for and notification of opportunities matched to the client's profile, plus general guidance on requirements and deadlines. Month-to-month agreement, cancellable in writing.</span></p>
+        <a class="btn btn--gold" href="#membresia"><span class="es">Ver qué incluye</span><span class="en">See what's included</span></a>
+      </article>
+
+      <article class="feecard">
+        <p class="feecard__label"><span class="es">Cotización a solicitud</span><span class="en">Quoted on request</span></p>
+        <h3><span class="es">Todos los demás servicios</span><span class="en">All other services</span></h3>
+        <p class="feecard__desc"><span class="es">Los honorarios dependen del alcance, la complejidad y los requisitos de cada oportunidad. Antovero los presenta por escrito antes de que el cliente autorice el trabajo.</span><span class="en">Fees depend on the scope, complexity and requirements of each opportunity. Antovero presents them in writing before the client authorizes the work.</span></p>
+        <ul class="feelist">
+          <li><span class="es">Preparación y entrega de propuestas</span><span class="en">Proposal preparation &amp; submission</span></li>
+          <li><span class="es">Gestión de certificaciones gubernamentales</span><span class="en">Government certification processing</span></li>
+          <li><span class="es">Renovación de ASG</span><span class="en">ASG renewal</span></li>
+          <li><span class="es">Renovación de SAM.gov</span><span class="en">SAM.gov renewal</span></li>
+          <li><span class="es">Visitas y gestiones presenciales</span><span class="en">On-site visits &amp; errands</span></li>
+          <li><span class="es">Comisión por adjudicación, según acuerdo escrito previo</span><span class="en">Award commission, per prior written agreement</span></li>
+        </ul>
+        <a class="btn btn--outline" href="#contacto"><span class="es">Solicitar una cotización</span><span class="en">Request a quote</span></a>
+      </article>
     </div>
-    <p class="note reveal" style="margin-top:1rem;text-align:center">
+
+    <p class="note reveal" style="margin-top:1.4rem;text-align:center">
       <span class="es">Los honorarios no incluyen gastos de terceros, derechos gubernamentales, fianzas, sellos, notarización ni mensajería.</span>
       <span class="en">Fees do not include third-party expenses, government charges, bonds, stamps, notarization or courier services.</span>
     </p>
